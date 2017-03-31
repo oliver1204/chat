@@ -7,24 +7,24 @@ var IMApp = IMApp || {};
 IMApp.MessageView = (function($, _) {
     // message content dom
     var $msgview = $('#msgview');
-    
+
     var $doc = $(document);
-    
+
     var hisClicked = false;
 
     var clientWidth = document.documentElement.clientWidth; // 可视窗口高度
     var clientHeight = document.documentElement.clientHeight; // 可视窗口高度
-        
+
     $(window).resize(function() {
         clientWidth = document.documentElement.clientWidth; // 可视窗口高度
         clientHeight = document.documentElement.clientHeight; // 可视窗口高度
-    
+
         $msgview.css({
             'width': clientWidth,
             'height': clientHeight
         });
     }).resize();
-    
+
     // 新消息显示
     var sendMessage = function(message) {
         message = JSON.parse(message);
@@ -33,13 +33,13 @@ IMApp.MessageView = (function($, _) {
         var $dom = template(message);
 
         var needScroll = true;
-        
-        if (Math.abs(clientHeight + $msgview.scrollTop() - $msgview[0].scrollHeight) > 100) {
+
+        if (Math.abs(clientHeight + $msgview.scrollTop() - $msgview[0].scrollHeight) > 500) {
             needScroll = false;
         }
-        
+
         $msgview.append($dom);
-        
+
         if (needScroll) {
             setTimeout(function() {
                 $msgview.scrollTop(1000000);
@@ -75,14 +75,14 @@ IMApp.MessageView = (function($, _) {
             $('#hisline').show();
         }
         $msgview.scrollTop(0);
-        
+
         hisClicked = true;
     };
-    
+
     var scrollBottom = function(){
         $msgview.scrollTop(1000000);
     };
-    
+
     var initEvent = function() {
         var Class_focus = 'message_focus';
 
@@ -173,11 +173,11 @@ IMApp.MessageView = (function($, _) {
          */
         showGoodsInfo: function(goodsinfo) {
             goodsinfo = JSON.parse(goodsinfo);
-        
+
             if (goodsinfo && goodsinfo['goodsMsgId']) {
                 var template = _.template($('#tpl_goodsinfo').html());
                 $('.J_goodsinfo').filter('[data-id=' + goodsinfo['goodsMsgId'] + ']').html(template(goodsinfo));
-            }            
+            }
         }
     };
 }(jQuery, window._));
