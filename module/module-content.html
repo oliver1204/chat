@@ -20,39 +20,110 @@
     <script src="js/index.js"></script>
 
     <!-- message -->
-    <!-- 13:12:04 -->
+    <!-- 文本消息 -->
     <script type="template/text" id="tpl_message1">
-
+      <p class="message_time"><%= time %></p>
       <div class="messages <%= mtype %>">
-        <div class="message clearfix">
+        <div class="message clearfix" data-id="<%= messageid %>">
           <a href="#" target="_blank" class="avatar">
             <img src="<%= avatar %>" alt="<%= name %>" />
           </a>
           <div class="content clearfix">
             <i class="message_tip"></i>
             <div class="message_content">
-              <p class="message_text">
-                <%= content %>
-              </p>
+              <p class="message_text"><%= content %></p>
             </div>
+            <div class="warning"></div>
           </div>
         </div>
         <div class="dropdown">
           <ul class="dropdown_menu">
-            <li class="copy"><a>复制</a></li>
+            <li class="copyText"><a>复制</a></li>
             <li class="delete"><a>删除</a></li>
           </ul>
         </div>
       </div>
     </script>
 
+    <!-- 图片消息 -->
+    <script type="template/text" id="tpl_message2">
+      <p class="message_time"><%= time %></p>
+      <div class="messages <%= mtype %>">
+        <div class="message clearfix" data-id="<%= messageid %>">
+          <a href="#" target="_blank" class="avatar">
+            <img src="<%= avatar %>" alt="<%= name %>"/>
+          </a>
+          <div class="content clearfix">
+            <div class="message_img" style="width: <%= width %>px; height: <%= height %>px">
+              <img src="<%= src %>" width="<%= width %>" height="<%= height %>"/>
+            </div>
+            <% if ( mtype === 'other' ) { %>
+              <% var tofloat = "left: " + (parseInt(width, 10) + 50 ) + "px;"%>
+            <% } else{ %>
+              <% var tofloat = "right: " + (parseInt(width, 10) + 50 ) + "px;"%>
+            <% } %>
+            <div class="warning" style="<%= tofloat %>"></div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <ul class="dropdown_menu">
+            <li class="copyPic"><a>复制</a></li>
+            <li class="saveToLocation"><a>保存到本地</a></li>
+          </ul>
+        </div>
+      </div>
+    </script>
+
+    <!-- 商品消息 -->
+    <script type="template/text" id="tpl_message3">
+      <p class="message_time"><%= time %></p>
+      <div class="message clearfix <%= mtype %>" data-id="<%= messageid %>">
+  			<a href="#" target="_blank" class="avatar">
+  				<img src="<%= avatar %>" alt="<%= name %>"/>
+  			</a>
+        <div class="content clearfix">
+          <i class="message_tip message_goods_tip"></i>
+          <div class="message_content goods">
+            <div class="message_goods J_goodsinfo clearfix" data-id="<%= goodsMsgId %>"></div>
+          </div>
+          <div class="warning"></div>
+        </div>
+      </div>
+    </script>
+
+    <script type="template/text" id="tpl_goodsinfo">
+      <% if (title) { %>
+        <a hidefocus="true" href="<%= goodsUrl %>" target="_blank" class="message_goods_link">
+          <img src="<%= pic %>" alt="<%= title %>" class="message_goods_img"/>
+        </a>
+
+        <p class="message_goods_tit">
+          <a class="goods_title_text" href="<%= src %>">
+            <%= title %>
+          </a>
+        </p>
+        <p class="message_goods_price">&yen;<%= price %></p>
+      <% } %>
+    </script>
+
+    <!-- 信息提示: 本期不作  -->
+    <!-- <script type="template/text" id="tpl_message4">
+        <p class="im_message_weektip"><span><i class="im_message_weektip_t">系统消息：</i><%= content %></span></p>
+    </script> -->
+
+    <!-- 文件提示: 本期不作 -->
+	  <!-- <script type="template/text" id="tpl_message5">
+      <p class="im_message_weektip">收到文件：<i class="font-normal" title="<%= filepath %>">"<%= filename %>"</i> (<%= filesize %>) <a href="moguim://moguim/:openfile?<%= fileid %>">打开文件</a> <a href="moguim://moguim/:openfolder?<%= fileid %>">打开文件夹</a></p>
+    </script> -->
+
+    <!-- 语音 -->
 	  <script type="template/text" id="tpl_message6">
       <p class="message_time"><%= time %></p>
-      <div class="message clearfix <%= mtype %>">
+      <div class="message clearfix <%= mtype %>" data-id="<%= messageid %>">
         <a href="#" target="_blank" class="avatar">
           <img src="<%= avatar %>" alt="<%= name %>" />
         </a>
-        <div class="content clearfix">
+        <div class="content clearfix content_voice">
           <i class="message_tip"></i>
           <div class="message_content voice">
             <div class="message_info clearfix">
@@ -65,6 +136,7 @@
               <span class="<%= voiceisread === 'true' ? '' : 'unread' %>"></span>
             </p>
           </div>
+          <div class="warning"></div>
         </div>
       </div>
     </script>

@@ -1,42 +1,95 @@
 $(document).ready(function() {
-  // mock data
+  // 文本消息 data mock
   var message1 = {
+    messageid: '1',
     name: '布吉',
     time: '13:12:04',
     avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
     msgtype: '1',
     mtype: 'other',
-    voiceid: '2014-04-28-110509-8423EF5C29B-2059-4c51-91ED-2D91D043F5541gqwv2',
-    voicetime: '1分',
-    voiceisread: 'true',
-    content: 'hi'
+    content: '好，给你一个橘子,好，给你一个橘子,好，给你一个橘子,好，给你一个橘子,好，给你一个橘子,好，给你一个橘子,'
   };
-
   var message10 = {
-    name: '布吉',
-    time: '13:12:04',
-    avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
-    msgtype: '1',
-    mtype: 'other',
-    voiceid: '2014-04-28-110509-8423EF5C29B-2059-4c51-91ED-2D91D043F5541gqwv2',
-    voicetime: '1分',
-    voiceisread: 'true',
-    content: '我想要一个橘子'
-  };
-
-  var message11 = {
+    messageid: '10',
     name: '布吉',
     time: '13:12:04',
     avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
     msgtype: '1',
     mtype: 'me',
-    voiceid: '2014-04-28-110509-8423EF5C29B-2059-4c51-91ED-2D91D043F5541gqwv2',
-    voicetime: '1分',
-    voiceisread: 'true',
-    content: '好，给你一个橘子,好，给你一个橘子,好，给你一个橘子,好，给你一个橘子,好，给你一个橘子,好，给你一个橘子,'
+    content: '好，给你一个橘子'
   };
 
+  // 图片消息 data mock
+  var message2 = {
+    messageid: '2',
+    name: '布吉',
+    time: '13:12:14',
+    content: '消息内容，内容内容',
+    avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
+    src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
+    width: '200',
+    height: '200',
+    goodsTitle: '2017新款欧美简约女装百搭时尚娃娃领镶钻无袖雪纺衫小衫背心上衣',
+    goodsPrice: '89.00',
+    goodsPicurl: 'http://s12.mogujie.cn/b7/bao/130819/q22xe_kqyuuq3ikfbg2rdwgfjeg5sckzsew_400x600.jpg_100x100.jpg',
+    msgtype: '2',
+    mtype: 'other'
+  };
+  var message20 = {
+    messageid: '20',
+    name: '布吉',
+    time: '13:12:14',
+    content: '消息内容，内容内容',
+    avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
+    src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
+    width: '100',
+    height: '100',
+    goodsTitle: '2017新款欧美简约女装百搭时尚娃娃领镶钻无袖雪纺衫小衫背心上衣',
+    goodsPrice: '89.00',
+    goodsPicurl: 'http://s12.mogujie.cn/b7/bao/130819/q22xe_kqyuuq3ikfbg2rdwgfjeg5sckzsew_400x600.jpg_100x100.jpg',
+    msgtype: '2',
+    mtype: 'me'
+  };
+
+  // 商品消息 data mock
+  var message30 = {
+    messageid: '30',
+    name: '布吉',
+    time: '13:12:04',
+    avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
+    src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
+    width: '100',
+    height: '100',
+    goodsMsgId: '11112',
+    title: '钻无袖雪纺衫小衫背心上衣',
+    price: '89.00',
+    pic: 'http://s12.mogujie.cn/b7/bao/130819/q22xe_kqyuuq3ikfbg2rdwgfjeg5sckzsew_400x600.jpg_100x100.jpg',
+    msgtype: '3',
+    mtype: 'other',
+    goodsUrl: 'www.baidu.com'
+  };
+
+  // 商品消息 data mock
+  var message3 = {
+    messageid: '3',
+    name: '布吉',
+    time: '13:12:04',
+    avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
+    src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
+    width: '100',
+    height: '100',
+    goodsMsgId: '11111',
+    title: '2017新款欧美简约女装百搭时尚娃娃领镶钻无袖雪纺衫小衫背心上衣,2017新款欧美简约女装百搭时尚娃娃领镶钻无袖雪纺衫小衫背心上衣',
+    price: '89.00',
+    pic: 'http://s12.mogujie.cn/b7/bao/130819/q22xe_kqyuuq3ikfbg2rdwgfjeg5sckzsew_400x600.jpg_100x100.jpg',
+    msgtype: '3',
+    mtype: 'me',
+    goodsUrl: 'www.baidu.com'
+  };
+
+  // 语音 data mock
   var message6 = {
+    messageid: '6',
     name: '布吉',
     time: '13:12:04',
     avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
@@ -46,23 +99,47 @@ $(document).ready(function() {
     voicetime: '1分',
     voiceisread: 'false'
   };
+  var message60 = {
+    messageid: '60',
+    name: '布吉',
+    time: '13:12:04',
+    avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
+    msgtype: '6',
+    mtype: 'other',
+    voiceid: '2014-04-28-110509-8423EF5C29B-2059-4c51-91ED-2D91D043F5541gqwv2',
+    voicetime: '1分',
+    voiceisread: 'false'
+  };
 
   // handle data
   message1 = JSON.stringify(message1);
-  message6 = JSON.stringify(message6);
-
   message10 = JSON.stringify(message10);
-  message11 = JSON.stringify(message11);
+  message2 = JSON.stringify(message2);
+  message20 = JSON.stringify(message20);
+  message30 = JSON.stringify(message30);
+  message3 = JSON.stringify(message3);
+  message6 = JSON.stringify(message6);
+  message60 = JSON.stringify(message60);
 
   // simulate send data
   sendMessage(message1);
+  sendMessage(message10);
+  sendMessage(message2);
+  sendMessage(message20);
+  sendMessage(message30);
+  showGoodsInfo(message30);
+  sendMessage(message3);
+  showGoodsInfo(message3);
+  sendMessage(message6);
+  sendMessage(message60);
 
   setTimeout(function() {
-    sendMessage(message6);
-    sendMessage(message10);
-    sendMessage(message11);
     // historyMessage(message1);
+    // resendMessage();
   }, 1000);
+
+  onMessageSendFaild('10');
+
 
   if ($('body').on) {
     // show dropdown
@@ -71,17 +148,25 @@ $(document).ready(function() {
         var target = $(e.currentTarget);
 
         if ( e.which === 3 && target.find('.message_text').length > 0 ) {
-          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           $('.dropdown').hide();
           target.parents('.message').siblings('.dropdown').show();
           e.stopPropagation();
         }
       });
+      $('body').on('mousedown', '.content', function(e) {
+        var target = $(e.currentTarget);
+
+        if ( e.which === 3 && target.find('.message_img').length > 0) {
+          $('.dropdown').hide();
+          target.parents('.message').siblings('.dropdown').show();
+          e.stopPropagation();
+        }
+      })
     } else {
       $('body').click(function(e){
         var target = $(e.currentTarget);
 
-        if(target.className === 'message_content') {
+        if(target.className === 'message_content' || target.className === 'message_img') {
           $('.dropdown').hide();
           target.parents('.message').siblings('.dropdown').show();
           e.stopPropagation();
@@ -99,7 +184,7 @@ $(document).ready(function() {
     });
 
     // copy
-    $('body').on('click', '.dropdown .copy', function(){
+    $('body').on('click', '.dropdown .copyText', function(){
       $('.dropdown').hide();
     });
 
@@ -109,11 +194,30 @@ $(document).ready(function() {
       $(e.currentTarget).closest('.messages').remove();
     });
 
+    // Copy Picture
+    $('body').on('click', '.dropdown .copyPic', function(){
+      $('.dropdown').hide();
+    });
+
+    // Save To Location
+    $('body').on('click', '.dropdown .saveToLocation', function(){
+      $('.dropdown').hide();
+    });
+
     // 播放语音
     $('body').on('click', '.voice', function(e){
       var target = $(e.currentTarget);
       var voiceid = target.find('.J_voicebtn').attr('data-id');
       window.playVoice(voiceid);
+    });
+
+    // 超出标题部分显示...
+    $('.goods_title_text').each(function(){
+      var maxwidth = 44;
+      if($(this).text().length>maxwidth){
+        $(this).text($(this).text().substring(0,maxwidth));
+        $(this).html($(this).html()+'...');
+      }
     });
   }
 
