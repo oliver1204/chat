@@ -8,7 +8,7 @@
 <body>
     <div id="msgview" class="check_histoty">
       <div class="histoty">
-        <a href="moguim://moguim/:history">查看聊天记录</a>
+        <a href="moguim://moguim/:history" id="im_history_btn">查看聊天记录</a>
       </div>
     </div>
 
@@ -24,13 +24,13 @@
     <script type="template/text" id="tpl_message1">
       <p class="message_time"><%= time %></p>
       <div class="messages <%= mtype %>">
-        <div class="message clearfix" data-id="<%= messageid %>">
+        <div class="message clearfix">
           <a href="#" target="_blank" class="avatar">
             <img src="<%= avatar %>" alt="<%= name %>" />
           </a>
           <div class="content clearfix">
             <i class="message_tip"></i>
-            <div class="message_content">
+            <div class="message_content text_content">
               <p class="message_text"><%= content %></p>
             </div>
             <div class="warning"></div>
@@ -49,7 +49,7 @@
     <script type="template/text" id="tpl_message2">
       <p class="message_time"><%= time %></p>
       <div class="messages <%= mtype %>">
-        <div class="message clearfix" data-id="<%= messageid %>">
+        <div class="message clearfix">
           <a href="#" target="_blank" class="avatar">
             <img src="<%= avatar %>" alt="<%= name %>"/>
           </a>
@@ -77,33 +77,27 @@
     <!-- 商品消息 -->
     <script type="template/text" id="tpl_message3">
       <p class="message_time"><%= time %></p>
-      <div class="message clearfix <%= mtype %>" data-id="<%= messageid %>">
+      <div class="message clearfix <%= mtype %>">
   			<a href="#" target="_blank" class="avatar">
   				<img src="<%= avatar %>" alt="<%= name %>"/>
   			</a>
         <div class="content clearfix">
           <i class="message_tip message_goods_tip"></i>
           <div class="message_content goods">
-            <div class="message_goods J_goodsinfo clearfix" data-id="<%= goodsMsgId %>"></div>
+            <div class="message_goods J_goodsinfo clearfix" data-id="<%= goodsMsgId %>">
+              <a hidefocus="true" href="<%= goodsUrl %>" target="_blank" class="message_goods_link">
+                <img src="<%= pic %>" alt="<%= title %>" class="message_goods_img"/>
+              </a>
+
+              <p class="message_goods_tit">
+                <a class="goods_title_text" href="<%= src %>"><%= title %></a>
+              </p>
+              <p class="message_goods_price">&yen;<%= price %></p>
+            </div>
           </div>
           <div class="warning"></div>
         </div>
       </div>
-    </script>
-
-    <script type="template/text" id="tpl_goodsinfo">
-      <% if (title) { %>
-        <a hidefocus="true" href="<%= goodsUrl %>" target="_blank" class="message_goods_link">
-          <img src="<%= pic %>" alt="<%= title %>" class="message_goods_img"/>
-        </a>
-
-        <p class="message_goods_tit">
-          <a class="goods_title_text" href="<%= src %>">
-            <%= title %>
-          </a>
-        </p>
-        <p class="message_goods_price">&yen;<%= price %></p>
-      <% } %>
     </script>
 
     <!-- 信息提示: 本期不作  -->
@@ -119,7 +113,7 @@
     <!-- 语音 -->
 	  <script type="template/text" id="tpl_message6">
       <p class="message_time"><%= time %></p>
-      <div class="message clearfix <%= mtype %>" data-id="<%= messageid %>">
+      <div class="message clearfix <%= mtype %>">
         <a href="#" target="_blank" class="avatar">
           <img src="<%= avatar %>" alt="<%= name %>" />
         </a>

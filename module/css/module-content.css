@@ -101,7 +101,7 @@ a {
 .me .content .message_tip {
   float: right;
   position: absolute;
-  background: url(img/default/me.png) 2px 0 no-repeat;
+  background: url(img/default/me.png) 1px 0 no-repeat;
   right: 3px;
 }
 
@@ -154,6 +154,12 @@ a {
 .content .message_content .message_info .message_time {
   float: right;
   color: #999;
+}
+
+.text_content {
+  word-wrap: break-word;
+  word-break: normal;
+  text-align: left;
 }
 
 .message_voice {
@@ -229,10 +235,6 @@ a {
   font-size: 14px;
 }
 
-
-
-
-
 .message_img {
   position: relative;
   border-radius: 3px;
@@ -262,8 +264,12 @@ a {
 }
 
 .me .content .message_goods_tip {
-  background: url(img/default/other.png) 2px 0 no-repeat;
-  transform: rotateY(180deg);
+  background: url(img/default/goods.png) 0px 0 no-repeat;
+}
+
+.message .content .goods {
+  max-width: 100%;
+  text-align: left;
 }
 
 .message_goods {
@@ -283,22 +289,22 @@ a {
   left: 0;
 }
 
-.message_goods_link img {
+.message_goods .message_goods_link img {
   display: block;
 }
 
-.message_goods_tit {
-  font: normal 12px/24px tahoma, arial, sans-serif;
+.message_goods .message_goods_tit {
   padding-left: 90px;
-  line-height: 24px;
 }
 
-.message_goods_tit a {
+.message_goods .message_goods_tit a {
+  font: normal 12px/24px tahoma, arial, sans-serif;
+  line-height: 24px;
   display: inline-block;
   color: #999;
 }
 
-.message_goods_tit {
+.message_goods .message_goods_tit {
   position: relative;
   max-width: 300px;
   height: 47px;

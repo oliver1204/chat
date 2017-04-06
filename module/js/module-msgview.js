@@ -22,7 +22,10 @@ IMApp.MessageView = (function($, _) {
     $msgview.css({
       'width': clientWidth,
       'height': clientHeight,
-      'overflow-x': 'scroll'
+      'overflow-x': 'hidden',
+      'overflow-y': 'auto',
+      'position': 'absolute'
+
     });
   }).resize();
 
@@ -81,6 +84,14 @@ IMApp.MessageView = (function($, _) {
     $msgview.scrollTop(0);
 
     hisClicked = true;
+
+    $('.goods_title_text').each(function(){
+      var maxwidth = 44;
+      if($(this).text().length > maxwidth){
+        $(this).text($(this).text().substring(0, maxwidth));
+        $(this).html($(this).html()+'...');
+      }
+    });
   };
 
   var scrollBottom = function(){
@@ -218,6 +229,6 @@ window.resendMessage = IMApp.MessageView.resendMessage;
 */
 
 $(document).ready(function() {
-    IMApp.MessageView.init();
-	window.open("moguim://moguim/:documentcompleted");
+  IMApp.MessageView.init();
+	// window.open("moguim://moguim/:documentcompleted");
 });

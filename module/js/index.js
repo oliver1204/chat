@@ -111,6 +111,59 @@ $(document).ready(function() {
     voiceisread: 'false'
   };
 
+  // history data
+  var historys = [{
+        name: '快刀',
+        time: '13:12:24',
+        content: '消息内容，内容内容<a href="http://mogujie.com/fUnZk" target="_blank">http://mogujie.com/fUnZk</a>',
+        avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
+        src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
+        width: '100',
+        height: '100',
+        goodsTitle: '2013新款欧美简约女装百搭时尚娃娃领镶钻无袖雪纺衫小衫背心上衣',
+        goodsPrice: '89.00',
+        goodsPicurl: 'http://s12.mogujie.cn/b7/bao/130819/q22xe_kqyuuq3ikfbg2rdwgfjeg5sckzsew_400x600.jpg_100x100.jpg',
+        msgtype: '1',
+        mtype: 'me'
+      }, {
+        name: '布吉',
+        time: '13:12:04',
+        content: 'ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp',
+        avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
+        src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
+        width: '100',
+        height: '100',
+        goodsTitle: '2013新款欧美简约女装百搭时尚娃娃领镶钻无袖雪纺衫小衫背心上衣',
+        goodsPrice: '89.00',
+        goodsPicurl: 'http://s12.mogujie.cn/b7/bao/130819/q22xe_kqyuuq3ikfbg2rdwgfjeg5sckzsew_400x600.jpg_100x100.jpg',
+        msgtype: '1',
+        mtype: 'me'
+      }, {
+        messageid: '3',
+        name: '布吉',
+        time: '13:12:04',
+        avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
+        src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
+        width: '100',
+        height: '100',
+        goodsMsgId: '11111',
+        title: '2017新款欧美简约女装百搭时尚娃娃领镶钻无袖雪纺衫小衫背心上衣,2017新款欧美简约女装百搭时尚娃娃领镶钻无袖雪纺衫小衫背心上衣',
+        price: '89.00',
+        pic: 'http://s12.mogujie.cn/b7/bao/130819/q22xe_kqyuuq3ikfbg2rdwgfjeg5sckzsew_400x600.jpg_100x100.jpg',
+        msgtype: '3',
+        mtype: 'me',
+        goodsUrl: 'www.baidu.com'
+      }, {
+	      name: '布吉',
+        time: '13:12:04',
+        avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
+        msgtype: '6',
+        mtype: 'other',
+	      voiceid: '2014-04-28-110509-8423EF5C29B-2059-4c51-91ED-2D91D043F5541gqwv2',
+	      voicetime: '1分',
+	      voiceisread: 'true'
+	    }];
+
   // handle data
   message1 = JSON.stringify(message1);
   message10 = JSON.stringify(message10);
@@ -120,6 +173,7 @@ $(document).ready(function() {
   message3 = JSON.stringify(message3);
   message6 = JSON.stringify(message6);
   message60 = JSON.stringify(message60);
+  historys = JSON.stringify(historys);
 
   // simulate send data
   sendMessage(message1);
@@ -127,52 +181,50 @@ $(document).ready(function() {
   sendMessage(message2);
   sendMessage(message20);
   sendMessage(message30);
-  showGoodsInfo(message30);
   sendMessage(message3);
-  showGoodsInfo(message3);
   sendMessage(message6);
   sendMessage(message60);
 
   setTimeout(function() {
-    // historyMessage(message1);
+    historyMessage(historys);
     // resendMessage();
   }, 1000);
 
-  onMessageSendFaild('10');
+  // onMessageSendFaild('10');
 
 
-  if ($('body').on) {
-    // show dropdown
-    if ($('body').mousedown) {
-      $('body').on('mousedown', '.message_content', function(e){
-        var target = $(e.currentTarget);
+  // if ($('body').on) {
+  //   // show dropdown
+  //   if ($('body').mousedown) {
+  //     $('body').on('mousedown', '.message_content', function(e){
+  //       var target = $(e.currentTarget);
 
-        if ( e.which === 3 && target.find('.message_text').length > 0 ) {
-          $('.dropdown').hide();
-          target.parents('.message').siblings('.dropdown').show();
-          e.stopPropagation();
-        }
-      });
-      $('body').on('mousedown', '.content', function(e) {
-        var target = $(e.currentTarget);
+  //       if ( e.which === 3 && target.find('.message_text').length > 0 ) {
+  //         $('.dropdown').hide();
+  //         target.parents('.message').siblings('.dropdown').show();
+  //         e.stopPropagation();
+  //       }
+  //     });
+  //     $('body').on('mousedown', '.content', function(e) {
+  //       var target = $(e.currentTarget);
 
-        if ( e.which === 3 && target.find('.message_img').length > 0) {
-          $('.dropdown').hide();
-          target.parents('.message').siblings('.dropdown').show();
-          e.stopPropagation();
-        }
-      })
-    } else {
-      $('body').click(function(e){
-        var target = $(e.currentTarget);
+  //       if ( e.which === 3 && target.find('.message_img').length > 0) {
+  //         $('.dropdown').hide();
+  //         target.parents('.message').siblings('.dropdown').show();
+  //         e.stopPropagation();
+  //       }
+  //     })
+  //   } else {
+  //     $('body').click(function(e){
+  //       var target = $(e.currentTarget);
 
-        if(target.className === 'message_content' || target.className === 'message_img') {
-          $('.dropdown').hide();
-          target.parents('.message').siblings('.dropdown').show();
-          e.stopPropagation();
-        }
-      });
-    }
+  //       if(target.className === 'message_content' || target.className === 'message_img') {
+  //         $('.dropdown').hide();
+  //         target.parents('.message').siblings('.dropdown').show();
+  //         e.stopPropagation();
+  //       }
+  //     });
+  //   }
 
     // close dropdown
     $('body').on('click', function(e){
@@ -200,25 +252,25 @@ $(document).ready(function() {
     });
 
     // Save To Location
-    $('body').on('click', '.dropdown .saveToLocation', function(){
-      $('.dropdown').hide();
-    });
+    // $('body').on('click', '.dropdown .saveToLocation', function(){
+    //   $('.dropdown').hide();
+    // });
 
-    // 播放语音
+    // play voice
     $('body').on('click', '.voice', function(e){
       var target = $(e.currentTarget);
       var voiceid = target.find('.J_voicebtn').attr('data-id');
       window.playVoice(voiceid);
     });
 
-    // 超出标题部分显示...
+    // the parts title overflow to show '...'
     $('.goods_title_text').each(function(){
       var maxwidth = 44;
-      if($(this).text().length>maxwidth){
-        $(this).text($(this).text().substring(0,maxwidth));
+      if($(this).text().length > maxwidth){
+        $(this).text($(this).text().substring(0, maxwidth));
         $(this).html($(this).html()+'...');
       }
     });
-  }
+  // }
 
 });
