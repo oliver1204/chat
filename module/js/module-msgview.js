@@ -46,10 +46,7 @@ IMApp.MessageView = (function($, _) {
 
     if (needScroll) {
       setTimeout(function() {
-        // $msgview.scrollTop(1000000);
-        $('body, html').animate({
-          scrollTop: 1000000
-        }, 'slow');
+        $msgview.scrollTop(1000000);
       }, 0);
     }
   };

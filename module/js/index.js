@@ -190,6 +190,13 @@ $(document).ready(function() {
     // resendMessage();
   }, 1000);
 
+   setTimeout(function() {
+     $('#msgview'). scrollTop(1000000)
+    //historyMessage(historys);
+    // resendMessage();
+  }, 2000);
+
+
   // onMessageSendFaild('10');
 
 
