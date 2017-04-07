@@ -27,8 +27,6 @@ $(document).ready(function() {
     content: '消息内容，内容内容',
     avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
     src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
-    width: '200',
-    height: '200',
     goodsTitle: '2017新款欧美简约女装百搭时尚娃娃领镶钻无袖雪纺衫小衫背心上衣',
     goodsPrice: '89.00',
     goodsPicurl: 'http://s12.mogujie.cn/b7/bao/130819/q22xe_kqyuuq3ikfbg2rdwgfjeg5sckzsew_400x600.jpg_100x100.jpg',
@@ -42,8 +40,6 @@ $(document).ready(function() {
     content: '消息内容，内容内容',
     avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
     src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
-    width: '100',
-    height: '100',
     goodsTitle: '2017新款欧美简约女装百搭时尚娃娃领镶钻无袖雪纺衫小衫背心上衣',
     goodsPrice: '89.00',
     goodsPicurl: 'http://s12.mogujie.cn/b7/bao/130819/q22xe_kqyuuq3ikfbg2rdwgfjeg5sckzsew_400x600.jpg_100x100.jpg',
@@ -59,7 +55,7 @@ $(document).ready(function() {
     avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
     src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
     width: '100',
-    height: '100',
+    height: '200',
     goodsMsgId: '11112',
     title: '钻无袖雪纺衫小衫背心上衣',
     price: '89.00',
@@ -128,7 +124,7 @@ $(document).ready(function() {
       }, {
         name: '布吉',
         time: '13:12:04',
-        content: 'ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp',
+        content: 'ppp',
         avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
         src: 'http://s7.mogujie.com/b7/pic/130916/scccw_kqywsslikfbhszdwgfjeg5sckzsew_280x210.gif_100x100.jpg',
         width: '100',
@@ -154,15 +150,15 @@ $(document).ready(function() {
         mtype: 'me',
         goodsUrl: 'www.baidu.com'
       }, {
-	      name: '布吉',
+	    name: '布吉',
         time: '13:12:04',
         avatar: 'http://s7.mogujie.com/b7/avatar/130902/scccw_kqyvqn2dkfbewzcugfjeg5sckzsew_472x593.jpg',
         msgtype: '6',
         mtype: 'other',
-	      voiceid: '2014-04-28-110509-8423EF5C29B-2059-4c51-91ED-2D91D043F5541gqwv2',
-	      voicetime: '1分',
-	      voiceisread: 'true'
-	    }];
+	    voiceid: '2014-04-28-110509-8423EF5C29B-2059-4c51-91ED-2D91D043F5541gqwv2',
+	    voicetime: '1分',
+	    voiceisread: 'true'
+	  }];
 
   // handle data
   message1 = JSON.stringify(message1);
@@ -186,16 +182,10 @@ $(document).ready(function() {
   sendMessage(message60);
 
   setTimeout(function() {
+
     historyMessage(historys);
     // resendMessage();
   }, 1000);
-
-   setTimeout(function() {
-     $('#msgview'). scrollTop(1000000)
-    //historyMessage(historys);
-    // resendMessage();
-  }, 2000);
-
 
   // onMessageSendFaild('10');
 
@@ -272,7 +262,7 @@ $(document).ready(function() {
 
     // the parts title overflow to show '...'
     $('.goods_title_text').each(function(){
-      var maxwidth = 44;
+      var maxwidth = 40;
       if($(this).text().length > maxwidth){
         $(this).text($(this).text().substring(0, maxwidth));
         $(this).html($(this).html()+'...');
