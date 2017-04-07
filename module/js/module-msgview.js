@@ -67,9 +67,9 @@ IMApp.MessageView = (function($, _) {
       $dom += template(message);
     }
 
-    if (hisClicked) {
-      $dom += '<p style="height:5px;margin:0 20px 20px 20px;border-bottom:2px dotted #ccc;">&nbsp;</p>';
-    }
+    // if (hisClicked) {
+    //   $dom += '<p style="height:5px;margin:0 20px 20px 20px;border-bottom:2px dotted #ccc;">&nbsp;</p>';
+    // }
 
     $($dom).insertAfter($('#im_history_btn'));
     if (len < 10) {
@@ -82,9 +82,9 @@ IMApp.MessageView = (function($, _) {
 
     hisClicked = true;
 
-    $('.goods_title_text').each(function(){
-      var maxwidth = 44;
-      if($(this).text().length > maxwidth){
+    $('.goods_title_text').each(function() {
+      var maxwidth = 40;
+      if($(this).text().length > maxwidth) {
         $(this).text($(this).text().substring(0, maxwidth));
         $(this).html($(this).html()+'...');
       }

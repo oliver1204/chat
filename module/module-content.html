@@ -12,7 +12,6 @@
       </div>
     </div>
 
-
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/json2.min.js"></script>
     <script src="js/lib/underscore.min.js"></script>
@@ -54,13 +53,13 @@
             <img src="<%= avatar %>" alt="<%= name %>"/>
           </a>
           <div class="content clearfix">
-            <div class="message_img" style="width: <%= width %>px; height: <%= height %>px">
-              <img src="<%= src %>" width="<%= width %>" height="<%= height %>"/>
-            </div>
+            <a class="message_img" href="#">
+              <img src="<%= src %>"/>
+            </a>
             <% if ( mtype === 'other' ) { %>
-              <% var tofloat = "left: " + (parseInt(width, 10) + 50 ) + "px;"%>
+              <% var tofloat = "left: 330px;"%>
             <% } else{ %>
-              <% var tofloat = "right: " + (parseInt(width, 10) + 50 ) + "px;"%>
+              <% var tofloat = "right: 330px;"%>
             <% } %>
             <div class="warning" style="<%= tofloat %>"></div>
           </div>
@@ -78,9 +77,9 @@
     <script type="template/text" id="tpl_message3">
       <p class="message_time"><%= time %></p>
       <div class="message clearfix <%= mtype %>">
-  			<a href="#" target="_blank" class="avatar">
-  				<img src="<%= avatar %>" alt="<%= name %>"/>
-  			</a>
+		<a href="#" target="_blank" class="avatar">
+		  <img src="<%= avatar %>" alt="<%= name %>"/>
+		</a>
         <div class="content clearfix">
           <i class="message_tip message_goods_tip"></i>
           <div class="message_content goods">
@@ -120,14 +119,17 @@
         <div class="content clearfix content_voice">
           <i class="message_tip"></i>
           <div class="message_content voice">
-            <div class="message_info clearfix">
-              <div class="message_name"><%= name %></div>
-              <div class="message_time"><%= time %></div>
-            </div>
             <p class="message_voice_line">
-              <a class="message_voice J_voicebtn" target="_blank" data-id="<%= voiceid %>" href="moguim://moguim/:playvoice?<%= voiceid %>"></a>
-              <span class="voice_info"><%= voicetime %></span>
-              <span class="<%= voiceisread === 'true' ? '' : 'unread' %>"></span>
+              <% if ( mtype === 'me' ){%>
+                <span class="voice_info"><%= voicetime %></span>
+                <span class="<%= voiceisread === 'true' ? '' : 'unread' %>"></span>
+                <a class="message_voice J_voicebtn" target="_blank" data-id="<%= voiceid %>" href="moguim://moguim/:playvoice?<%= voiceid %>"></a>
+              <% }else {%>
+                <a class="message_voice J_voicebtn" target="_blank" data-id="<%= voiceid %>" href="moguim://moguim/:playvoice?<%= voiceid %>"></a>
+                <span class="<%= voiceisread === 'true' ? '' : 'unread' %>"></span>
+                <span class="voice_info"><%= voicetime %></span>
+              <%}%>
+
             </p>
           </div>
           <div class="warning"></div>
