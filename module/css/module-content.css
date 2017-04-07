@@ -6,6 +6,7 @@ body, html {
   height: 100%;
   font: normal 12px/1.5 'SimSun';
   overflow: hidden;
+  background: #f4f4f4;
 }
 img {
   border: 0;
